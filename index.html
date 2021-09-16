@@ -71,6 +71,17 @@
                             </div>
                         </a>
                     </td>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('cheesecup')">
+                            <div id="cheesecup">
+                                <h1>🍯</h1>
+                            </div>
+                            <div class="name">
+                                <p>Cheese Cup</p>
+                            </div>
+                        </a>
+                    </td>
                 </tr>
                 <tr>
                     <td class="item">
@@ -117,19 +128,19 @@
                             </div>
                         </a>
                     </td>
-                </tr>
-                <tr>
                     <td class="item">
                         <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
-                            onclick="currentSelected('cheesecup')">
-                            <div id="cheesecup">
-                                <h1>🍯</h1>
+                            onclick="currentSelected('chips')">
+                            <div id="chips">
+                                <h1>🥔</h1>
                             </div>
                             <div class="name">
-                                <p>Cheese Cup</p>
+                                <p>Chips</p>
                             </div>
                         </a>
                     </td>
+                </tr>
+                <tr>
                     <td class="item">
                         <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
                             onclick="currentSelected('soda')">
@@ -163,8 +174,6 @@
                             </div>
                         </a>
                     </td>
-                </tr>
-                <tr>
                     <td class="item">
                         <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
                             onclick="currentSelected('water')">
@@ -187,6 +196,8 @@
                             </div>
                         </a>
                     </td>
+                </tr>
+                <tr class="mx-auto">
                     <td class="item">
                         <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
                             onclick="currentSelected('hotcocoa')">
@@ -549,6 +560,7 @@
                 case 'lgcandy': itemPriceFormat = '$3.00'; itemName = 'Lg Candy'; itemPrice = 3; break;
                 case 'mdcandy': itemPriceFormat = '$2.00'; itemName = 'Md Candy'; itemPrice = 2; break;
                 case 'smcandy': itemPriceFormat = '$1.00'; itemName = 'Sm Candy'; itemPrice = 1; break;
+                case 'chips': itemPriceFormat = '$1.00'; itemName = 'Chips'; itemPrice = 1; break;
                 case 'cheesecup': itemPriceFormat = '$0.50'; itemName = 'Cheese Cup'; itemPrice = 0.5; break;
                 case 'soda': itemPriceFormat = '$3.00'; itemName = 'Soda'; itemPrice = 3; break;
                 case 'gatorade': itemPriceFormat = '$3.00'; itemName = 'Gatorade'; itemPrice = 3; break;
@@ -662,6 +674,7 @@
                 case 'Lg Candy': itemEmoji = '🍫'; itemPrice = 3; break;
                 case 'Md Candy': itemEmoji = '🍭'; itemPrice = 2; break;
                 case 'Sm Candy': itemEmoji = '🍬'; itemPrice = 1; break;
+                case 'Chips': itemEmoji = '🥔'; itemPrice = 1; break;
                 case 'Cheese Cup': itemEmoji = '🍯'; itemPrice = 0.5; break;
                 case 'Soda': itemEmoji = '🥤'; itemPrice = 3; break;
                 case 'Gatorade': itemEmoji = '🧃'; itemPrice = 3; break;

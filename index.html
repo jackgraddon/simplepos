@@ -393,6 +393,15 @@
                                     <input type="number" class="form-control" placeholder="0.00" id="dollarAmount"
                                         aria-label="Dollar Amount" aria-describedby="dollarSign" onkeyup="calc()"
                                         onkeypress="completeOrderModal(event)">
+                                    <button class="btn btn-primary" id="dollar5" type="button" onclick="given(5)">$5
+                                    </button>
+                                    <button class="btn btn-primary" id="dollar10" type="button" onclick="given10()">$10
+                                    </button>
+                                    <button class="btn btn-primary" id="dollar10" type="button" onclick="given(15)">$15
+                                    </button>
+                                    <button class="btn btn-primary" id="dollar20" type="button" onclick="given(20)"
+                                        style="border-top-right-radius: 1rem; border-bottom-right-radius: 1rem;">$20
+                                    </button>
                                 </div>
                                 <lable for="change">Change:</lable>
                                 <div class="input-group">
@@ -416,6 +425,19 @@
                                         }
                                         // console.log(recieved);
                                         let change = recieved - totalPrice;
+                                        if (change % 1 != 0) {
+                                            changeFormat = `${change}0`
+                                        } else {
+                                            changeFormat = `${change}.00`
+                                        }
+                                        changeField.value = changeFormat;
+                                    }
+                                    function given(value) {
+                                        let recieved = document.querySelector('#dollarAmount');
+                                        let changeField = document.querySelector('#change');
+                                        let changeFormat;
+                                        recieved.value = value;
+                                        let change = value - totalPrice;
                                         if (change % 1 != 0) {
                                             changeFormat = `${change}0`
                                         } else {

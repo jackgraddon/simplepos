@@ -761,17 +761,41 @@
             var items = [];
             let totalItems = itemNum - 1;
             console.log(totalItems);
+
+            var csv = 'Title,Value\n';
+            var fileText = [
+                ['Order Number', orderNum + "\n"],
+                ['Placed On', dayTime + "\n"],
+                ['Total', totalPriceFormat + "\n"],
+                ['Items:', "\n"]
+            ];
+
             while (o <= totalItems) {
                 let id = [`item${o}Name`, `item${o}Price`];
                 console.log(id);
                 itemRName = document.getElementById(id[0]).innerHTML;
                 itemRPrice = document.getElementById(id[1]).innerHTML;
+                fileText.push(itemRName, itemRPrice + "\n");
                 console.log(items);
-
-                items[o] = `${itemRName} for ${itemRPrice}`;
+                items[o] = `${itemRName} for ${itemRPrice}`;;
                 o++;
             }
 
+            // fileText.forEach(function (row) {
+            //     // csv += row.join(',');
+            //     csv += "\n";
+            // });
+
+            function SaveAsFile(t, f, m) {
+                try {
+                    var b = new Blob([t], { type: m });
+                    saveAs(b, f);
+                } catch (e) {
+                    window.open("data:" + m + "," + encodeURIComponent(t), '_blank', '');
+                }
+            }
+
+            SaveAsFile(fileText, "order" + orderNum + ".csv", "text/csv;charset=utf-8");
 
             sendDiscordMessage(orderNum, totalPriceFormat, dayTime, items);
 

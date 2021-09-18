@@ -2,7 +2,6 @@
   "short_name": "SimplePOS",
   "name": "Simple Point of Sale",
   "start_url": "../",
-  "display": "standalone",
   "icons": [
     {
       "src": "https://fblapos.jackgraddon.page/test/img/icons/icon144.png",

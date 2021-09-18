@@ -8,8 +8,8 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
     <meta name="og:image" content="./ogimage.jpg">
-    <link rel="manifest" href="./a2hs.webmanifest">
-    <link rel="apple-touch-icon" sizes="192x192" href="appicon.png">
+    <link rel="manifest" href="./a2hs.json">
+    <link rel="apple-touch-icon" sizes="192x192" href="maskable.png">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -784,16 +784,16 @@
             function SaveAsFile(t, f, m) {
                 try {
                     var b = new Blob([t], { type: m });
-                    var reader = new FileReader();
-                    reader.onload = function () {
-                        var popup = window.open();
-                        var link = document.createElement('a');
-                        link.setAttribute('href', reader.result);
-                        link.setAttribute('download', b);
-                        popup.document.body.appendChild(link);
-                        link.click();
-                    }
-                    reader.readAsDataURL(b)
+                    // var reader = new FileReader();
+                    // reader.onload = function () {
+                    //     var popup = window.open();
+                    //     var link = document.createElement('a');
+                    //     link.setAttribute('href', reader.result);
+                    //     link.setAttribute('download', b);
+                    //     popup.document.body.appendChild(link);
+                    //     link.click();
+                    // }
+                    // reader.readAsDataURL(b)
                     saveAs(b, f);
                 } catch (e) {
                     window.open("data:" + m + "," + encodeURIComponent(t), '_blank', '');

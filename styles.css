@@ -194,6 +194,11 @@ footer.pay.pressed {
   padding: 0.7rem 3rem;
   margin-bottom: 0;
 }
+.modal {
+  margin-left: -15vw;
+  margin-right: auto;
+  z-index: 3;
+}
 .modal-content {
   border-radius: 2rem !important;
   border: none;

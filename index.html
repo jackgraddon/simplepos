@@ -594,7 +594,6 @@
             }
         }
         function addData(amount) {
-            document.getElementById('receipt').style.zIndex = '0';
             let i = 1
             while (i <= amount) {
                 var newRow = document.createElement("tr");
@@ -630,7 +629,6 @@
     <!-- Add Custom Data to Table -->
     <script>
         function customPrice() {
-            document.getElementById('receipt').style.zIndex = '0';
             let valueFormat;
             let value = parseFloat(document.querySelector('#customAmount').value);
             if (isNaN(value)) {
@@ -678,7 +676,6 @@
     <!-- Open Delete Confirmation Modal -->
     <script>
         function deleteItemConfirm(item) {
-            document.getElementById('receipt').style.zIndex = '0';
             var offCanvasDelete = document.querySelector('#deleteItemConfirm');
             var bsOffCanvas = new bootstrap.Offcanvas(offCanvasDelete)
             bsOffCanvas.show()
@@ -734,7 +731,6 @@
     <!-- Open Total Modal -->
     <script>
         function tapped() {
-            document.getElementById('receipt').style.zIndex = '5';
             let pay = document.querySelector('.pay');
             pay.style.transform = "scale(0.9)";
             pay.style.boxShadow = "0px 5px 30px 0px rgba(79, 132, 19, 0.3)";
@@ -765,12 +761,11 @@
             let totalItems = itemNum - 1;
             console.log(totalItems);
 
-            var csv = 'Title,Value\n';
+            var csv = '';
             var fileText = [
-                ['Order Number', orderNum + "\n"],
+                ['Order Receipt \n'],
                 ['Placed On', dayTime + "\n"],
-                ['Total', totalPriceFormat + "\n"],
-                ['Items:', "\n"]
+                ['Total', '', totalPriceFormat + "\n"]
             ];
 
             while (o <= totalItems) {
@@ -787,16 +782,6 @@
             function SaveAsFile(t, f, m) {
                 try {
                     var b = new Blob([t], { type: m });
-                    // var reader = new FileReader();
-                    // reader.onload = function () {
-                    //     var popup = window.open();
-                    //     var link = document.createElement('a');
-                    //     link.setAttribute('href', reader.result);
-                    //     link.setAttribute('download', b);
-                    //     popup.document.body.appendChild(link);
-                    //     link.click();
-                    // }
-                    // reader.readAsDataURL(b)
                     saveAs(b, f);
                 } catch (e) {
                     window.open("data:" + m + "," + encodeURIComponent(t), '_blank', '');
@@ -804,7 +789,6 @@
             }
 
             SaveAsFile(fileText, "order" + orderNum + ".csv", "text/csv;charset=utf-8");
-
             sendDiscordMessage(orderNum, totalPriceFormat, dayTime, items);
 
             $('#items *').remove();
@@ -826,12 +810,9 @@
         }
 
         document.addEventListener("click", event => { });
-
         document.addEventListener("touchstart", event => {
             if (event.touches.length > 1) {
-                // console.log("zoom plz stahp");
                 event.preventDefault();
-                event.stopPropagation(); // maybe useless
             }
         }, { passive: false });
     </script>

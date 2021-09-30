@@ -112,6 +112,7 @@ div.receipt {
   border-top-left-radius: 2rem;
   border-bottom-left-radius: 2rem;
   box-shadow: 0 1rem 3rem 0 rgba(255, 255, 255, 0.5);
+  z-index: 5;
 }
 .receipt .header {
   background-color: #33995f;
@@ -195,7 +196,7 @@ footer.pay.pressed {
   margin-bottom: 0;
 }
 .modal {
-  margin-left: -15vw;
+  margin-left: -10vw;
   margin-right: auto;
   z-index: 3;
 }

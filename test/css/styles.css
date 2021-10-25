@@ -224,6 +224,10 @@ footer.pay.pressed {
 .modal-footer a:last-child {
   margin-right: 0;
 }
+.modal-backdrop {
+  z-index: 1;
+}
+
 .deletedItemWarn {
   display: flex;
   flex-direction: row;

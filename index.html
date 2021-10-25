@@ -3,7 +3,7 @@
 
 <head>
     <title>Lion's Den POS</title>
-    <!-- Required meta tags -->
+
     <meta charset="utf-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
@@ -11,19 +11,18 @@
     <link rel="manifest" href="./a2hs.json">
     <link rel="apple-touch-icon" sizes="192x192" href="maskable.png">
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <!-- Fontawesome 5 -->
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-    <!-- Personal CSS -->
+
     <link href="./styles.css" rel="stylesheet">
 </head>
 
 <body>
     <main class="webcontainer">
-        <!-- Items sold at stand -->
+
         <table class="buttons">
             <tbody>
                 <tr>
@@ -72,13 +71,13 @@
                         </a>
                     </td>
                     <td class="item">
-                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
-                            onclick="currentSelected('cheesecup')">
-                            <div id="cheesecup">
+                        <a class="tocart">
+                            <div id="cheesecup" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                                onclick="currentSelected('cheesecup')">
                                 <h1>🍯</h1>
                             </div>
                             <div class="name">
-                                <p>Cheese Cup</p>
+                                <p>Cup of Cheese</p>
                             </div>
                         </a>
                     </td>
@@ -220,20 +219,22 @@
                             </div>
                         </a>
                     </td>
-                    <!-- <td class="item">
-                        <a class="tocart" type="a" onclick="$('#customModal').modal('show');">
-                            <div id="custom">
-                                <h1>➕</h1>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('finger')">
+                            <div id="finger">
+                                <h1>☝️</h1>
                             </div>
                             <div class="name">
-                                <p>Custom</p>
+                                <p>Foam Finger</p>
                             </div>
                         </a>
-                    </td> -->
+                    </td>
+
                 </tr>
             </tbody>
         </table>
-        <!-- Quantity Modal -->
+
         <div class="modal fade" id="quantityModal" tabindex="-1" aria-labelledby="quantityModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -280,7 +281,7 @@
                 </div>
             </div>
         </div>
-        <!-- Custom Price Modal -->
+
         <div class="modal fade" id="customModal" tabindex="-1" aria-labelledby="customModal" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -318,7 +319,7 @@
                 </div>
             </div>
         </div>
-        <!-- Sidebar with order -->
+
         <div class="receipt" id="receipt">
             <div class="header">
                 <div class="d-flex flex-column flex-fill justify-content-center align-items-center">
@@ -351,25 +352,12 @@
                         </tr>
                     </table>
                 </div>
-                <!-- Modal Test Buttons -->
-                <!-- <a type="a" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#quantityModal"> Test
-                    Quantity Modal</a> -->
-                <!-- <a type="a" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#totalModal"> Test Total
-                    Modal</a> -->
-                <!-- <a class="btn btn-primary m-1" data-bs-toggle="offcanvas" data-bs-target="#deleteItemConfirm"
-                    aria-controls="deleteItemConfirm">Test Delete Item Offcanvas</a> -->
-                <!-- <a class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#reloadingPageModal">Test
-                    Relodaing modal</a> -->
-                <!-- <a class="btn btn-primary m-1" onclick="sendDiscordMessage('test', 'test', new Date)">Test Discord log
-                    system</a> -->
-                <!-- Window Toggle Warning -->
-                <!-- Pay Button -->
                 <button class="pay" type="button" onclick="tapped()">
                     <p>Finish and Pay</p>
                 </button>
             </div>
         </div>
-        <!-- Total Modal -->
+
         <div class="modal fade" id="totalModal" tabindex="-1" aria-labelledby="totalModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -411,8 +399,7 @@
                                     <button class="btn btn-primary" id="keepChange" type="button"
                                         onclick="keepTheChange()"
                                         style="border-top-right-radius: 1rem; border-bottom-right-radius: 1rem;">Keep
-                                        The
-                                        Change?
+                                        The Change?
                                     </button>
                                 </div>
                                 <script>
@@ -503,7 +490,7 @@
                 </div>
             </div>
         </div>
-        <!-- Delete Item Confirmation -->
+
         <div class="offcanvas offcanvas-end" style="width: 30vw;" tabindex="-1" id="deleteItemConfirm"
             aria-labelledby="deleteItemConfirmLabel">
             <div class="offcanvas-header">
@@ -521,7 +508,7 @@
                     data-bs-target="#deleteItemConfirm">Cancel</a>
             </div>
         </div>
-        <!-- Reloading page Modal -->
+
         <div class="modal fade" id="reloadingPageModal" tabindex="-1" role="dialog"
             aria-labelledby="reloadingPageModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -540,7 +527,7 @@
             </div>
         </div>
     </main>
-    <!-- Select Window Number -->
+
     <div class="modal fade" id="windowModal" tabindex="-1" aria-labelledby="windowModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -563,14 +550,33 @@
             }
         </script>
     </div>
-    <!-- Add data to table -->
+
     <script>
         var itemName;
         var itemPrice = 0;
         var itemPriceFormat;
         var totalPrice = 0;
         var totalPriceFormat = "0.00";
+        let calDate;
+        let min;
+        let dayTime;
+        function hours12(date) { return (calDate.getHours() + 24) % 12 || 12; }
         let itemNum = 1;
+
+        function getTime() {
+            calDate = new Date();
+            min = (calDate.getMinutes() < 10 ? '0' : '') + calDate.getMinutes();
+            dayTime = (calDate.getMonth() + 1) + "-" + calDate.getDate() + " at " + hours12() + ":" + min;
+        }
+        getTime();
+
+        var csv = '';
+        var fileText = [
+            ['Order Receipt \n'],
+            ['Placed On', dayTime + "\n"]
+        ];
+        var itemList = [];
+
         function currentSelected(selectedItem) {
             itemName = selectedItem;
             switch (itemName) {
@@ -581,7 +587,7 @@
                 case 'popcorn': itemPriceFormat = '$2.00'; itemName = 'Popcorn'; itemPrice = 2; break;
                 case 'lgcandy': itemPriceFormat = '$3.00'; itemName = 'Lg Candy'; itemPrice = 3; break;
                 case 'mdcandy': itemPriceFormat = '$2.00'; itemName = 'Md Candy'; itemPrice = 2; break;
-                case 'smcandy': itemPriceFormat = '$1.00'; itemName = 'Sm Candy'; itemPrice = 1; break;
+                case 'smcandy': itemPriceFormat = '$0.50'; itemName = 'Sm Candy'; itemPrice = 0.5; break;
                 case 'chips': itemPriceFormat = '$1.00'; itemName = 'Chips'; itemPrice = 1; break;
                 case 'cheesecup': itemPriceFormat = '$0.50'; itemName = 'Cheese Cup'; itemPrice = 0.5; break;
                 case 'soda': itemPriceFormat = '$3.00'; itemName = 'Soda'; itemPrice = 3; break;
@@ -591,6 +597,7 @@
                 case 'water': itemPriceFormat = '$1.50'; itemName = 'Water'; itemPrice = 1.5; break;
                 case 'coffee': itemPriceFormat = '$2.00'; itemName = 'Coffee'; itemPrice = 2; break;
                 case 'hotcocoa': itemPriceFormat = '$2.00'; itemName = 'Hot Cocoa'; itemPrice = 2; break;
+                case 'finger': itemPriceFormat = '$5.00'; itemName = 'Foam Finger'; itemPrice = 5; break;
             }
         }
         function addData(amount) {
@@ -618,15 +625,19 @@
                     totalPriceFormat = `${totalPrice}.00`
                 }
                 document.querySelector('#total').innerHTML = `$${totalPriceFormat}`;
+                fileText.push(itemName, itemPrice + "\n");
+                itemList[i] = `${itemName} for ${itemPriceFormat}`;
+                // console.log(itemList)
                 i++
                 itemNum++;
+                getTime();
             }
             itemName = null;
             itemPrice = null;
             $('#quantityModal').modal('hide');
         }
     </script>
-    <!-- Add Custom Data to Table -->
+
     <script>
         function customPrice() {
             let valueFormat;
@@ -673,20 +684,18 @@
             document.querySelector('#customName').value = '';
         }
     </script>
-    <!-- Open Delete Confirmation Modal -->
+
     <script>
         function deleteItemConfirm(item) {
             var offCanvasDelete = document.querySelector('#deleteItemConfirm');
             var bsOffCanvas = new bootstrap.Offcanvas(offCanvasDelete)
             bsOffCanvas.show()
             let itemEmoji = "";
-            // console.log(item);
             let deleteConfirmBtn = document.querySelector('#confirmDelete');
-            let id = [`${item}Name`, `${item}Price`];
-            // console.log(id);
-            let itemName = document.getElementById(id[0]).innerHTML;
-            let itemPrice = document.getElementById(id[1]).innerHTML;
-            // console.log(itemName, itemPrice);
+            let idName = `${item}Name`;
+            let idPrice = `${item}Price`;
+            itemName = document.getElementById(idName).innerHTML;
+            let itemPrice;
             switch (itemName) {
                 case 'Pizza': itemEmoji = '🍕'; itemPrice = 5; break;
                 case 'Hot Dog': itemEmoji = '🌭'; itemPrice = 3.5; break;
@@ -695,7 +704,7 @@
                 case 'Popcorn': itemEmoji = '🍿'; itemPrice = 2; break;
                 case 'Lg Candy': itemEmoji = '🍫'; itemPrice = 3; break;
                 case 'Md Candy': itemEmoji = '🍭'; itemPrice = 2; break;
-                case 'Sm Candy': itemEmoji = '🍬'; itemPrice = 1; break;
+                case 'Sm Candy': itemEmoji = '🍬'; itemPrice = 0.5; break;
                 case 'Chips': itemEmoji = '🥔'; itemPrice = 1; break;
                 case 'Cheese Cup': itemEmoji = '🍯'; itemPrice = 0.5; break;
                 case 'Soda': itemEmoji = '🥤'; itemPrice = 3; break;
@@ -705,6 +714,7 @@
                 case 'Water': itemEmoji = '🥤'; itemPrice = 1.5; break;
                 case 'Coffee': itemEmoji = '☕'; itemPrice = 2; break;
                 case 'Hot Cocoa': itemEmoji = '☕'; itemPrice = 2; break;
+                case 'Foam Finger': itemEmoji = '☝️'; itemPrice = 5; break;
                 default: itemEmoji = '➕'; itemPrice = parseFloat(itemPrice); break;
             }
             let itemEmojiField = document.querySelector('#itemEmoji');
@@ -728,9 +738,10 @@
             document.querySelector('#total').innerHTML = `$${totalPriceFormat}`;
         }
     </script>
-    <!-- Open Total Modal -->
+
     <script>
         function tapped() {
+            calc()
             let pay = document.querySelector('.pay');
             pay.style.transform = "scale(0.9)";
             pay.style.boxShadow = "0px 5px 30px 0px rgba(79, 132, 19, 0.3)";
@@ -742,55 +753,29 @@
             }, 150)
 
         }
+
+        function SaveAsFile(t, f, m) {
+            try {
+                var b = new Blob([t], { type: m });
+                saveAs(b, f);
+            } catch (e) {
+                window.open("data:" + m + "," + encodeURIComponent(t), '_blank', '');
+            }
+            fileText = [
+                ['Order Receipt \n'],
+                ['Placed On', dayTime + "\n"]
+            ];
+        }
     </script>
-    <!-- Download Order Log and Clear Receipt -->
-    <script src="http://cdn.jsdelivr.net/g/filesaver.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/g/filesaver.js"></script>
+    <script src="./js/sendDiscord.js"></script>
     <script>
         let orderNum = 1;
         let itemDName;
         let itemDPrice;
 
-        function completeOrder() {
-            var calDate = new Date();
-            function hours12(date) { return (calDate.getHours() + 24) % 12 || 12; }
-            let min = (calDate.getMinutes() < 10 ? '0' : '') + calDate.getMinutes();
-            let dayTime = (calDate.getMonth() + 1) + "-" + calDate.getDate() + " at " + hours12() + ":" + min;
-
-            let o = 1;
-            var items = [];
-            let totalItems = itemNum - 1;
-            console.log(totalItems);
-
-            var csv = '';
-            var fileText = [
-                ['Order Receipt \n'],
-                ['Placed On', dayTime + "\n"],
-                ['Total', '', totalPriceFormat + "\n"]
-            ];
-
-            while (o <= totalItems) {
-                let id = [`item${o}Name`, `item${o}Price`];
-                console.log(id);
-                itemRName = document.getElementById(id[0]).innerHTML;
-                itemRPrice = document.getElementById(id[1]).innerHTML;
-                fileText.push(itemRName, itemRPrice + "\n");
-                console.log(items);
-                items[o] = `${itemRName} for ${itemRPrice}`;;
-                o++;
-            }
-
-            function SaveAsFile(t, f, m) {
-                try {
-                    var b = new Blob([t], { type: m });
-                    saveAs(b, f);
-                } catch (e) {
-                    window.open("data:" + m + "," + encodeURIComponent(t), '_blank', '');
-                }
-            }
-
-            SaveAsFile(fileText, "order" + orderNum + ".csv", "text/csv;charset=utf-8");
-            sendDiscordMessage(orderNum, totalPriceFormat, dayTime, items);
-
+        function clearPage() {
             $('#items *').remove();
             $('#totalModal').modal('hide');
             orderNum++;
@@ -801,10 +786,18 @@
             document.querySelector('#total').innerHTML = `$${totalPriceFormat}`;
             document.querySelector('#dollarAmount').value = '';
         }
+
+        function completeOrder() {
+            let o = 0;
+            let totalItems = itemNum - 1;
+            fileText.push('Total', '', totalPriceFormat);
+            SaveAsFile(fileText, "order" + orderNum + ".csv", "text/csv;charset=utf-8");
+            sendDiscordMessage(orderNum, totalPriceFormat, dayTime, itemList)
+            clearPage();
+        }
     </script>
 
-    <!-- Disable Zoom and Scroll-->
-    <script>
+    <!-- <script>
         document.ontouchmove = function (event) {
             event.preventDefault();
         }
@@ -815,88 +808,8 @@
                 event.preventDefault();
             }
         }, { passive: false });
-    </script>
-    <!-- Post Log to Webhook -->
-    <script>
-        function sendDiscordMessage(orderNum, totalPriceFormat, dayTime, items) {
-            var request = new XMLHttpRequest();
-            let messageContent;
+    </script> -->
 
-            if (!orderNum || !totalPriceFormat) {
-                messageContent = "There was no input data, if this is an error - please check the code."
-            } else {
-                if (orderNum == "test") {
-                    messageContent = [
-                        {
-                            "type": "rich",
-                            "title": `Test`,
-                            "description": `This is a test Webhook post, used to determine if the link still works or not.`,
-                            "color": 0xf3e0a7,
-                            "thumbnail": {
-                                "url": `https://fblapos.jackgraddon.page/icon.png`,
-                                "height": 0,
-                                "width": 0
-                            }
-                        }
-                    ];
-                } else {
-                    // let combined = "Coming soon in a later update."
-                    console.log(items);
-                    let combined = items.join('\n');
-                    console.log(combined);
-                    messageContent = [
-                        {
-                            "type": "rich",
-                            "title": `Receipt`,
-                            "description": `A new order was placed at ${dayTime}`,
-                            "color": 0xcff3a6,
-                            "fields": [
-                                {
-                                    "name": `Total:`,
-                                    "value": `$${totalPriceFormat}`,
-                                    "inline": true
-                                },
-                                {
-                                    "name": `Number:`,
-                                    "value": `Order ${orderNum} from Window ${windowNum}`,
-                                    "inline": true
-                                },
-                                {
-                                    "name": `Items:`,
-                                    "value": combined.toString(),
-                                    "inline": false
-                                }
-
-                            ],
-                            "thumbnail": {
-                                "url": `https://fblapos.jackgraddon.page/icon.png`,
-                                "height": 0,
-                                "width": 0
-                            }
-                        }
-                    ];
-                }
-            }
-
-            var params = {
-                username: "Lion's Den POS System",
-                embeds: messageContent
-            }
-            request.open("POST", "https://discord.com/api/webhooks/882329119281524776/bhGlPcQW7D89tdTMkFC12XYVWKx2OL_QaPdYd35iOivbG_652vkiBdFpHg8ZCGnqU_mu");
-            request.setRequestHeader('Content-type', 'application/json');
-            try {
-                request.send(JSON.stringify(params));
-            } catch (e) {
-                params = {
-                    username: "Lion's Den POS System",
-                    content: 'Something went wrong, please check your code. \n' + e
-                }
-                request.send(JSON.stringify(params));
-            }
-        }
-    </script>
-
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
         integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
         crossorigin="anonymous"></script>

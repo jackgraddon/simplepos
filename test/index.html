@@ -49,6 +49,10 @@
             --form-quaternary: #d3d5ec;
         }
 
+        body {
+            background-color: #f4f1de;
+        }
+
         @media (prefers-color-scheme: dark) {
             body {
                 background-color: #202232;
@@ -566,7 +570,7 @@
             </div>
         </div>
         <!-- Sidebar with order -->
-        <div class="receipt">
+        <div class="receipt" id="receipt">
             <div class="header">
                 <div class="d-flex flex-column flex-fill justify-content-center align-items-center">
                     <h1 id="storeName">SimplePOS</h1>
@@ -707,7 +711,7 @@
         </div>
         <!-- Total Modal -->
         <div class="modal fade" id="totalModal" tabindex="-1" aria-labelledby="totalModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered" style="margin-left: 11vw;">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="totalModalLabel">Purchase Results</h5>
@@ -1051,6 +1055,7 @@
     <!-- Open Total Modal -->
     <script>
         function tapped() {
+            document.getElementById('receipt').style.zIndex = '5';
             let pay = document.querySelector('.pay');
             pay.style.transform = "scale(0.9)";
             pay.style.boxShadow = "0px 5px 30px 0px rgba(79, 132, 19, 0.3)";

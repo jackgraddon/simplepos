@@ -1,7 +1,7 @@
 html,
 body {
   background-color: #22333b;
-  font-family: avenir, sans-serif;
+  font-family: "Avenir", sans-serif;
   overflow: hidden;
   position: fixed;
   width: 100vw;
@@ -46,12 +46,18 @@ table.numpad {
   border-collapse: collapse;
   border-radius: 2em;
   overflow: hidden;
+  /* background-color: #33995F; */
+  /* border: white 1px solid; */
 }
 .numpad td {
   padding: 0;
+  /* border-left: #18462c 1px solid;
+  border-bottom: #18462c 1px solid; */
 }
+
 .numpadbutton {
   font-size: 2rem;
+  /* height: 4rem; */
   width: 4rem;
   padding: 0.5rem 1rem;
   margin: 1px;
@@ -59,6 +65,7 @@ table.numpad {
   border: none;
   border: #18462c 1px solid;
 }
+
 .buttons {
   height: auto;
   width: auto;
@@ -68,14 +75,14 @@ table.numpad {
   padding-top: 0;
 }
 a.tocart div {
-  box-shadow: 0 2rem 3rem 0 rgba(255, 145, 77, 0.3);
+  box-shadow: 0px 2rem 3rem 0rem rgba(255, 145, 77, 0.3);
 }
 .item {
   padding: 7px;
   width: 170px;
 }
 .item div {
-  background-color: #fff;
+  background-color: white;
   border-top-left-radius: 2rem;
   border-top-right-radius: 2rem;
   padding: 0.5rem;
@@ -104,6 +111,7 @@ a.tocart div {
   display: block;
   color: #6d3d20;
 }
+
 div.receipt {
   height: 85vh;
   width: 30vw;
@@ -111,8 +119,7 @@ div.receipt {
   flex-direction: column;
   border-top-left-radius: 2rem;
   border-bottom-left-radius: 2rem;
-  box-shadow: 0 1rem 3rem 0 rgba(255, 255, 255, 0.5);
-  z-index: 5;
+  box-shadow: 0px 1rem 3rem 0rem rgba(255, 255, 255, 0.5);
 }
 .receipt .header {
   background-color: #33995f;
@@ -125,15 +132,15 @@ div.receipt {
   border-bottom: #ff914d solid 10px;
 }
 .header h1 {
-  font-weight: 700;
+  font-weight: bold;
   color: #18462c;
-  padding: 0.7rem 0 0.1rem;
+  padding: 0.7rem 0 0.1rem 0;
   margin-bottom: -5px;
 }
 .header p {
   font-weight: 100;
   color: #18462c;
-  padding: 0 0 0.7rem;
+  padding: 0rem 0 0.7rem 0;
   margin-bottom: -5px;
 }
 .header a i {
@@ -141,7 +148,7 @@ div.receipt {
   fill: #18462c;
 }
 .receipt .body {
-  background-color: #fff;
+  background-color: white;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
@@ -154,66 +161,63 @@ table.order thead {
 }
 table.order thead tr td {
   font-size: larger;
-  font-weight: 700;
+  font-weight: bold;
   font-style: normal;
 }
 table.order td {
   font-size: large;
-  color: #323232;
+  color: rgb(50, 50, 50);
   padding: 0.3rem 1rem;
 }
 td.price {
   font-style: italic;
-  color: #9b9b9b !important;
+  color: rgb(155, 155, 155) !important;
 }
 div.footer {
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 1rem;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: white;
   border-bottom-left-radius: 2rem;
 }
 div.footer table {
   font-size: larger;
-  border: 0 transparent solid;
+  border: 0px rgba(0, 0, 0, 0) solid;
 }
 .footer button.pay {
   height: auto;
   background-color: #33995f;
-  box-shadow: 0 15px 40px 0 rgba(51, 153, 95, 0.5);
-  border: 0;
+  box-shadow: 0px 15px 40px 0px rgba(51, 153, 95, 0.5);
+  border: 0px;
   border-radius: 1rem;
   transition: 100ms ease-in-out;
 }
 footer.pay.pressed {
   transform: scale(0.95);
-  box-shadow: 0 5px 30px 0 rgba(51, 153, 95, 0.5);
+  box-shadow: 0px 5px 30px 0px rgba(51, 153, 95, 0.5);
 }
+
 .pay p {
   font-size: 21px;
   color: #18462c;
   padding: 0.7rem 3rem;
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
-.modal {
-  margin-left: -10vw;
-  margin-right: auto;
-  z-index: 3;
-}
+
 .modal-content {
   border-radius: 2rem !important;
   border: none;
 }
 .modal-header {
   border: none;
-  padding: 2rem 2rem 0.5rem;
+  padding: 2rem 2rem 0.5rem 2rem;
 }
 .modal-body {
-  padding: 0.5rem 2rem 2rem;
+  padding: 0.5rem 2rem 2rem 2rem;
 }
 .modal-footer {
   border: none;
-  padding: 0 2rem 2rem;
+  padding: 0 2rem 2rem 2rem;
 }
 .modal-footer a:last-child {
   margin-right: 0;
@@ -221,6 +225,7 @@ footer.pay.pressed {
 .modal-backdrop {
   z-index: 0;
 }
+
 .deletedItemWarn {
   display: flex;
   flex-direction: row;
@@ -228,7 +233,7 @@ footer.pay.pressed {
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  margin: 0 1rem;
+  margin: 0rem 1rem;
   background-color: #33995f;
   border-radius: 2rem;
   border: 1px solid #18462c;
@@ -252,9 +257,10 @@ footer.pay.pressed {
 #cancelDelete {
   width: calc(100% - 2rem);
   padding: 1rem;
-  margin: 0 1rem;
+  margin: 0rem 1rem;
   border-radius: 2rem;
 }
+
 form {
   border-radius: 2rem;
   border: #6d3d20 1px solid;
@@ -284,7 +290,7 @@ form {
 }
 form .footnote {
   color: #ff914d !important;
-  margin: -8px 0 5px;
+  margin: -8px 0 5px 0;
   font-size: smaller;
   font-style: italic;
 }

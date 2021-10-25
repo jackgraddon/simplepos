@@ -2,7 +2,13 @@ if (!("fetch" in window)) {
   console.log("Fetch API not found, will be unable to send Discord logs.");
 }
 
-function sendDiscordMessage(orderNum, totalPriceFormat, dayTime, items) {
+function sendDiscordMessage(
+  orderNum,
+  totalPriceFormat,
+  dayTime,
+  items,
+  statusIndicator
+) {
   let messageContent, combined;
   if (!orderNum || !totalPriceFormat) {
     messageContent =
@@ -78,7 +84,7 @@ function sendDiscordMessage(orderNum, totalPriceFormat, dayTime, items) {
       body: JSON.stringify({
         username: "Lion's Den POS Log",
         avatar_url:
-          "https://github.com/jackgraddon/fblaposdepricated/blob/main/images/appicon.png?raw=true",
+          "https://raw.githubusercontent.com/jackgraddon/simplepos/master/images/appicon.png",
         embeds: messageContent,
       }),
     },
@@ -89,14 +95,16 @@ function sendDiscordMessage(orderNum, totalPriceFormat, dayTime, items) {
       if (!response.ok) {
         throw Error(response.statusText);
       } else {
+        statusIndicator.style.color = "#66ff78";
         console.log(
           `Order number ${orderNum} at window ${windowNum}:${combined}\n-----\nOrder finished with no errors.`
         );
       }
     })
     .catch((err) => {
+      statusIndicator.style.color = "#ff4a5c";
       console.log(
-        `Order number ${orderNum} at window ${windowNum}:\n${err}\n!!!!!\nOrder threw an error. Continuing without logging.`
+        `Order number ${orderNum} at window ${windowNum}:\n${err.name}: ${err.message}\n!!!!!\nOrder threw an error. Continuing without logging.`
       );
     });
 }

@@ -7,7 +7,8 @@ function sendDiscordMessage(
   totalPriceFormat,
   dayTime,
   items,
-  statusIndicator
+  statusIndicator,
+  sendUrl
 ) {
   let messageContent, combined;
   if (!orderNum || !totalPriceFormat) {
@@ -18,18 +19,18 @@ function sendDiscordMessage(
       messageContent = [
         {
           type: "rich",
-          title: `Receipt`,
-          description: `A new order was placed at test`,
+          title: `Test`,
+          description: `This is a test embed to make sure everything is working.`,
           color: 0xcff3a6,
           fields: [
             {
-              name: `Total:`,
-              value: `$test`,
+              name: `Field`,
+              value: `Field 1`,
               inline: true,
             },
             {
-              name: `Number:`,
-              value: `Order test from Window test`,
+              name: `Field`,
+              value: `Field 2`,
               inline: true,
             },
           ],
@@ -88,8 +89,7 @@ function sendDiscordMessage(
         embeds: messageContent,
       }),
     },
-    url =
-      "https://discord.com/api/webhooks/882329119281524776/bhGlPcQW7D89tdTMkFC12XYVWKx2OL_QaPdYd35iOivbG_652vkiBdFpHg8ZCGnqU_mu";
+    url = sendUrl;
   fetch(url, options)
     .then((response) => {
       if (!response.ok) {

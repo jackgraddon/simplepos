@@ -28,7 +28,7 @@ function sendDiscordMessage(orderNum, totalPriceFormat, dayTime, items) {
             },
           ],
           thumbnail: {
-            url: `https://simplepos.jackgraddon.page/images/icon.png`,
+            url: `https://github.com/jackgraddon/simplepos/blob/master/images/icon.png?raw=true`,
             height: 0,
             width: 0,
           },
@@ -61,7 +61,7 @@ function sendDiscordMessage(orderNum, totalPriceFormat, dayTime, items) {
             },
           ],
           thumbnail: {
-            url: `https://simplepos.jackgraddon.page/images/icon.png`,
+            url: `https://github.com/jackgraddon/simplepos/blob/master/images/icon.png?raw=true`,
             height: 0,
             width: 0,
           },
@@ -77,7 +77,8 @@ function sendDiscordMessage(orderNum, totalPriceFormat, dayTime, items) {
       },
       body: JSON.stringify({
         username: "Lion's Den POS Log",
-        avatar_url: "https://simplepos.jackgraddon.page/images/appicon.png",
+        avatar_url:
+          "https://github.com/jackgraddon/fblaposdepricated/blob/main/images/appicon.png?raw=true",
         embeds: messageContent,
       }),
     },

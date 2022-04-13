@@ -634,8 +634,7 @@
             let totalItems = itemNum - 1;
             fileText.push('Total', '', totalPriceFormat);
             SaveAsFile(fileText, "order" + orderNum + ".csv", "text/csv;charset=utf-8");
-
-            sendDiscordMessage(orderNum, totalPriceFormat, dayTime, itemList, document.getElementById('discordStatus'), CryptoJS.AES.decrypt('U2FsdGVkX18tVG7T5hd0B/lMKwnRevLpYvsci7/haqho5zg9iM+YgyjFeOnTPSs89tdEzNHj3cC4AzNYof9O1EPtdTiDWLb6ZlMXSiuuclcmfaT8HdtjH/m3ahkDhE2IBoIQymNWffENFUeQVnHiQ7AOug8UzjOAGYCnM6mxNDX3w27YTxwmLZ6VyWeev1Pz', '202122').toString(CryptoJS.enc.Utf8))
+            // sendDiscordMessage(orderNum, totalPriceFormat, dayTime, itemList, document.getElementById('discordStatus'), CryptoJS.AES.decrypt('U2FsdGVkX18tVG7T5hd0B/lMKwnRevLpYvsci7/haqho5zg9iM+YgyjFeOnTPSs89tdEzNHj3cC4AzNYof9O1EPtdTiDWLb6ZlMXSiuuclcmfaT8HdtjH/m3ahkDhE2IBoIQymNWffENFUeQVnHiQ7AOug8UzjOAGYCnM6mxNDX3w27YTxwmLZ6VyWeev1Pz', '202122').toString(CryptoJS.enc.Utf8))
             clearPage();
         }
     </script>

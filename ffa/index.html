@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Lion's Den POS</title>
+    <title>Lynden FFA | SimplePOS</title>
 
     <meta charset="utf-8">
     <meta name="viewport"
@@ -41,10 +41,21 @@
                         <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
                             onclick="currentSelected('smplant')">
                             <div id="smplant">
-                                <h1 style="transform: scale(0.5);">🪴</h1>
+                                <h1 style="transform: scale(0.5);">🎍</h1>
                             </div>
                             <div class="name">
                                 <p>Sm Planter</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('mdplant')">
+                            <div id="mdplant">
+                                <h1 style="transform: scale(0.7);">🎍</h1>
+                            </div>
+                            <div class="name">
+                                <p>Md Planter</p>
                             </div>
                         </a>
                     </td>
@@ -52,20 +63,9 @@
                 <tr>
                     <td class="item">
                         <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
-                            onclick="currentSelected('mdplant')">
-                            <div id="mdplant">
-                                <h1 style="transform: scale(0.7);">🪴</h1>
-                            </div>
-                            <div class="name">
-                                <p>Md Planter</p>
-                            </div>
-                        </a>
-                    </td>
-                    <td class="item">
-                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
-                            onclick="currentSelected('lgplant')">
+                            onclick="currentSelected('pots')">
                             <div id="pots">
-                                <h1>🎍</h1>
+                                <h1>🪴</h1>
                             </div>
                             <div class="name">
                                 <p>4" Pots</p>
@@ -74,20 +74,17 @@
                     </td>
                     <td class="item">
                         <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
-                            onclick="currentSelected('lgplant')">
+                            onclick="currentSelected('packs')">
                             <div id="packs">
-                                <h1>🎍</h1>
+                                <h1>🌱</h1>
                             </div>
                             <div class="name">
                                 <p>4/6 Packs</p>
                             </div>
                         </a>
                     </td>
-                </tr>
-                <tr>
                     <td class="item">
-                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
-                            onclick="currentSelected('custom')">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#customModal">
                             <div id="custom">
                                 <h1>➕</h1>
                             </div>
@@ -188,7 +185,7 @@
         <div class="receipt" id="receipt">
             <div class="header">
                 <div class="d-flex flex-column flex-fill justify-content-center align-items-center">
-                    <h1>Lion's Den</h1>
+                    <h1>FFA</h1>
                     <p>Order: <span id="orderNumber">1</span> | Window: <span id="windowNumber">?</span></p>
                 </div>
                 <a style="padding: 0.5rem;" onclick="$('#windowModal').modal('show');">
@@ -554,11 +551,11 @@
             itemName = document.getElementById(idName).innerHTML;
             let itemPrice;
             switch (itemName) {
-                case 'Hanging Basket': itemEmoji = '🍕'; itemPrice = 5; break;
-                case 'Sm Planter': itemEmoji = '🌭'; itemPrice = 3.5; break;
-                case 'Md Planter': itemEmoji = '🧀'; itemPrice = 3; break;
-                case '4" Pots': itemEmoji = '🥨'; itemPrice = 2.5; break;
-                case '4/6 Packs': itemEmoji = '🍿'; itemPrice = 2; break;
+                case 'Basket': itemEmoji = '🍃'; itemPrice = 35; break;
+                case 'Sm Planter': itemEmoji = '🪴'; itemPrice = 10; break;
+                case 'Md Planter': itemEmoji = '🪴'; itemPrice = 15; break;
+                case '4" Pots': itemEmoji = '🪴'; itemPrice = 2.5; break;
+                case '4/6 Packs': itemEmoji = '🌱'; itemPrice = 1; break;
                 default: itemEmoji = '➕'; itemPrice = parseFloat(itemPrice); break;
             }
             let itemEmojiField = document.querySelector('#itemEmoji');

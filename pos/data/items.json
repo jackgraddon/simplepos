@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Pizza",
+    "price": 5.0,
+    "emoji": "🍕",
+    "id": 1001
+  },
+  {
+    "name": "Hot Dog",
+    "price": 3.5,
+    "emoji": "🌭",
+    "id": 1002
+  },
+  {
+    "name": "Nachos",
+    "price": 3.0,
+    "emoji": "🧀",
+    "id": 1003
+  },
+  {
+    "name": "Pretzel",
+    "price": 2.5,
+    "emoji": "🥨",
+    "id": 1004
+  },
+  {
+    "name": "Popcorn",
+    "price": 2.0,
+    "emoji": "🍿",
+    "id": 1005
+  },
+  {
+    "name": "LG Candy",
+    "price": 3.0,
+    "emoji": "🍫",
+    "id": 1006
+  },
+  {
+    "name": "Md Candy",
+    "price": 2.0,
+    "emoji": "🍭",
+    "id": 1007
+  },
+  {
+    "name": "Sm Candy",
+    "price": 0.5,
+    "emoji": "🍬",
+    "id": 1008
+  },
+  {
+    "name": "Chips",
+    "price": 1.0,
+    "emoji": "🥔",
+    "id": 1009
+  },
+  {
+    "name": "Cheese Cup",
+    "price": 0.5,
+    "emoji": "🍯",
+    "id": 1010
+  },
+  {
+    "name": "Soda",
+    "price": 3.0,
+    "emoji": "🥤",
+    "id": 1011
+  },
+  {
+    "name": "Gatorade",
+    "price": 3.0,
+    "emoji": "🧃",
+    "id": 1012
+  },
+  {
+    "name": "Energy Drink",
+    "price": 4.0,
+    "emoji": "🥤",
+    "id": 1013
+  },
+  {
+    "name": "Frappuccino",
+    "price": 4.0,
+    "emoji": "☕️",
+    "id": 1014
+  },
+  {
+    "name": "Water",
+    "price": 1.5,
+    "emoji": "🥤",
+    "id": 1015
+  },
+  {
+    "name": "Coffee",
+    "price": 2.0,
+    "emoji": "☕️",
+    "id": 1016
+  },
+  {
+    "name": "Hot Cocoa",
+    "price": 2.0,
+    "emoji": "☕️",
+    "id": 1017
+  },
+  {
+    "name": "Foam Finger",
+    "price": 5.0,
+    "emoji": "☝️",
+    "id": 1018
+  }
+]

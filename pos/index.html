@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimplePOS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="webcontainer">
+        <div id="pos"></div>
+        <div id="cart">
+            <div class="header">
+                <div class="d-flex flex-column flex-fill justify-content-center align-items-center">
+                    <h1>Lion's Den</h1>
+                    <p>Order: <span id="orderNumber">1</span> | Window: <span id="windowNumber">?</span></p>
+                </div>
+                <a style="padding: 0.5rem;" onclick="$('#windowModal').modal('show');">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                </a>
+                <a style="padding-right: 0.2rem;">
+                    <i class="fas fa-circle" aria-hidden="true" id="discordStatus"></i>
+                </a>
+            </div>
+            <div class="body flex-fill">
+                <div class="flex-fill w-100 orderContainer">
+                    <table class="order" id="order">
+                        <thead>
+                            <tr>
+                                <td class="w-100">Item</td>
+                                <td>Price</td>
+                            </tr>
+                        </thead>
+                        <tbody id="items">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="w-100">
+                    <table class="table">
+                        <tr>
+                            <td class="w-100">Total:</td>
+                            <td class="price" id="total">$0.00</td>
+                        </tr>
+                    </table>
+                </div>
+                <button class="pay" type="button" onclick="tapped()">
+                    <p>Finish and Pay</p>
+                </button>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    let items;
+    fetch("data/items.json")
+        .then(response => {
+            return response.json();
+        })
+        .then(jsondata => items = jsondata);
+    window.onload = () => {
+        // test fetch
+        console.log(items)
+        items.forEach(item => {
+            console.log(item);
+            let container = document.createElement('div');
+            container.id = item.id;
+            container.classList.add("item");
+
+            let button = document.createElement("a");
+            button.classList.add("tocart");
+            // button.onclick = currentSelected(item.id);
+            container.appendChild(button);
+
+            let emoji = document.createElement("h1")
+            emoji.textContent = item.emoji;
+            button.appendChild(emoji);
+
+            let name = document.createElement("p")
+            name.textContent = item.name;
+            button.appendChild(name);
+
+            document.querySelector("#pos").appendChild(container)
+        })
+    }
+</script>
+
+</html>

@@ -1,2 +1,2 @@
-# fblapos
-A Cash-Only POS system for the FBLA Concession stand.
+# SimplePOS BETA
+An easy to use and customizable point of sale system for cash only businesses.

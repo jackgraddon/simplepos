@@ -1,0 +1,828 @@
+<!doctype HTML>
+<html lang="en">
+
+<head>
+    <title>Lion's Den POS</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="og:image" content="./ogimage.jpg">
+    <link rel="manifest" href="./a2hs.json">
+    <link rel="apple-touch-icon" sizes="192x192" href="maskable.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+    <link href="./styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <main class="webcontainer">
+        <table class="buttons">
+            <tbody>
+                <tr>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('pizza')">
+                            <div id="pizza">
+                                <h1>🍕</h1>
+                            </div>
+                            <div class="name">
+                                <p>Pizza</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('hotdog')">
+                            <div id="hotdog">
+                                <h1>🌭</h1>
+                            </div>
+                            <div class="name">
+                                <p>Hot Dog</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('nachos')">
+                            <div id="nachos">
+                                <h1>🧀</h1>
+                            </div>
+                            <div class="name">
+                                <p>Nachos</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('pretzel')">
+                            <div id="pretzel">
+                                <h1>🥨</h1>
+                            </div>
+                            <div class="name">
+                                <p>Pretzel</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="item">
+                        <a class="tocart">
+                            <div id="cheesecup" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                                onclick="currentSelected('cheesecup')">
+                                <h1>🍯</h1>
+                            </div>
+                            <div class="name">
+                                <p>Cup of Cheese</p>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('popcorn')">
+                            <div id="popcorn">
+                                <h1>🍿</h1>
+                            </div>
+                            <div class="name">
+                                <p>Popcorn</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('lgcandy')">
+                            <div id="lgcandy">
+                                <h1>🍫</h1>
+                            </div>
+                            <div class="name">
+                                <p>Lg Candy</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('mdcandy')">
+                            <div id="mdcandy">
+                                <h1>🍭</h1>
+                            </div>
+                            <div class="name">
+                                <p>Md Candy</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('smcandy')">
+                            <div id="smcandy">
+                                <h1>🍬</h1>
+                            </div>
+                            <div class="name">
+                                <p>Sm Candy</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('chips')">
+                            <div id="chips">
+                                <h1>🥔</h1>
+                            </div>
+                            <div class="name">
+                                <p>Chips</p>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('soda')">
+                            <div id="soda">
+                                <h1>🥤</h1>
+                            </div>
+                            <div class="name">
+                                <p>Soda</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('gatorade')">
+                            <div id="gatorade">
+                                <h1>🧃</h1>
+                            </div>
+                            <div class="name">
+                                <p>Gatorade</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('energydrink')">
+                            <div id="energydrink">
+                                <h1>🥤</h1>
+                            </div>
+                            <div class="name">
+                                <p>Energy Drink</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('water')">
+                            <div id="water">
+                                <h1>🥤</h1>
+                            </div>
+                            <div class="name">
+                                <p>Water</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('coffee')">
+                            <div id="coffee">
+                                <h1>☕</h1>
+                            </div>
+                            <div class="name">
+                                <p>Coffee</p>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                <tr class="mx-auto">
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('hotcocoa')">
+                            <div id="hotcocoa">
+                                <h1>☕</h1>
+                            </div>
+                            <div class="name">
+                                <p>Hot Cocoa</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('frappuccino')">
+                            <div id="frappuccino">
+                                <h1>🥛</h1>
+                            </div>
+                            <div class="name">
+                                <p>Frappuccino</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="item">
+                        <a class="tocart" type="a" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                            onclick="currentSelected('finger')">
+                            <div id="finger">
+                                <h1>☝️</h1>
+                            </div>
+                            <div class="name">
+                                <p>Foam Finger</p>
+                            </div>
+                        </a>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="modal fade" id="quantityModal" tabindex="-1" aria-labelledby="quantityModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="quantityModalLabel">How many?</h5>
+                    </div>
+                    <div class="modal-body mx-auto numpad">
+                        <table class="numpad">
+                            <tr>
+                                <td>
+                                    <a class="btn btn-primary numpadbutton" style="border-top-left-radius: 1.8rem;"
+                                        onclick="addData(1)">1</a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary numpadbutton" onclick="addData(2)">2</a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary numpadbutton" style="border-top-right-radius: 1.8rem;"
+                                        onclick="addData(3)">3</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a class="btn btn-primary numpadbutton" onclick="addData(4)">4</a></td>
+                                <td><a class="btn btn-primary numpadbutton" onclick="addData(5)">5</a></td>
+                                <td><a class="btn btn-primary numpadbutton" onclick="addData(6)">6</a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="btn btn-primary numpadbutton" style="border-bottom-left-radius: 1.8rem;"
+                                        onclick="addData(7)">7</a>
+                                </td>
+                                <td><a class="btn btn-primary numpadbutton" onclick="addData(8)">8</a></td>
+                                <td>
+                                    <a class="btn btn-primary numpadbutton" style="border-bottom-right-radius: 1.8rem;"
+                                        onclick="addData(9)">9</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 1rem;">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="customModal" tabindex="-1" aria-labelledby="customModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="customModalLabel">Add Custom Item / Note</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <lable for="customAmount">Add value:</lable>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text" id="dollarSign"><i class="fas fa-dollar-sign"></i></span>
+                                <input type="number" class="form-control" placeholder="0.00" id="customAmount"
+                                    onkeypress="completeCustomModal(event)" aria-label="Dollar Amount"
+                                    aria-describedby="dollarSign">
+                            </div>
+                            <p class="footnote">Leave blank if note!</p>
+                            <lable for="customName">Note:</lable>
+                            <input type="text" class="form-control" placeholder="Custom" id="customName"
+                                onkeypress="completeCustomModal(event)" aria-label="Note">
+                        </form>
+                        <script>
+                            function completeCustomModal(event) {
+                                if (event.keyCode == 13) {
+                                    customPrice()
+                                    $('#customModal').modal('hide');
+                                }
+                            }
+                        </script>
+                    </div>
+                    <div class=" modal-footer">
+                        <a class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 1rem;">Cancel</a>
+                        <a class="btn btn-primary" data-bs-dismiss="modal" style="border-radius: 1rem;"
+                            onclick="customPrice()">Add to Order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="receipt" id="receipt">
+            <div class="header">
+                <div class="d-flex flex-column flex-fill justify-content-center align-items-center">
+                    <h1>Lion's Den</h1>
+                    <p>Order: <span id="orderNumber">1</span> | Window: <span id="windowNumber">?</span></p>
+                </div>
+                <a style="padding: 0.5rem;" onclick="$('#windowModal').modal('show');">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                </a>
+                <a style="padding-right: 0.2rem;">
+                    <i class="fas fa-circle" aria-hidden="true" id="discordStatus"></i>
+                </a>
+            </div>
+            <div class="body flex-fill">
+                <div class="flex-fill w-100 orderContainer">
+                    <table class="order" id="order">
+                        <thead>
+                            <tr>
+                                <td class="w-100">Item</td>
+                                <td>Price</td>
+                            </tr>
+                        </thead>
+                        <tbody id="items">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="w-100">
+                    <table class="table">
+                        <tr>
+                            <td class="w-100">Total:</td>
+                            <td class="price" id="total">$0.00</td>
+                        </tr>
+                    </table>
+                </div>
+                <button class="pay" type="button" onclick="tapped()">
+                    <p>Finish and Pay</p>
+                </button>
+            </div>
+        </div>
+
+        <div class="modal fade" id="totalModal" tabindex="-1" aria-labelledby="totalModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="totalModalLabel">Purchase Results</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="calculator">
+                            <form>
+                                <lable for="totalAmount">Total:</lable>
+                                <div class="input-group mb-2">
+                                    <span class="input-group-text" id="dollarSign"><i
+                                            class="fas fa-dollar-sign"></i></span>
+                                    <input type="number" class="form-control" placeholder="0.00" id="totalAmount"
+                                        aria-label="Dollar Amount" aria-describedby="dollarSign" readonly>
+                                </div>
+                                <lable for="dollarAmount">Given:</lable>
+                                <div class="input-group mb-2">
+                                    <span class="input-group-text" id="dollarSign"><i
+                                            class="fas fa-dollar-sign"></i></span>
+                                    <input type="number" class="form-control" placeholder="0.00" id="dollarAmount"
+                                        aria-label="Dollar Amount" aria-describedby="dollarSign" onkeyup="calc()"
+                                        onkeypress="completeOrderModal(event)">
+                                    <button class="btn btn-primary" id="dollar5" type="button" onclick="given(5)">$5
+                                    </button>
+                                    <button class="btn btn-primary" id="dollar10" type="button" onclick="given(10)">$10
+                                    </button>
+                                    <button class="btn btn-primary" id="dollar10" type="button" onclick="given(15)">$15
+                                    </button>
+                                    <button class="btn btn-primary" id="dollar20" type="button" onclick="given(20)"
+                                        style="border-top-right-radius: 1rem; border-bottom-right-radius: 1rem;">$20
+                                    </button>
+                                </div>
+                                <lable for="change">Change:</lable>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="dollarSign"><i
+                                            class="fas fa-dollar-sign"></i></span>
+                                    <input class="form-control form-control-lg" value="0.00" id="change" readonly>
+                                    <button class="btn btn-primary" id="keepChange" type="button"
+                                        onclick="keepTheChange()"
+                                        style="border-top-right-radius: 1rem; border-bottom-right-radius: 1rem;">Keep
+                                        The Change?
+                                    </button>
+                                </div>
+                                <script>
+                                    function calc() {
+                                        let changeField = document.querySelector('#change');
+                                        let changeFormat;
+                                        let recieved = parseFloat(document.querySelector('#dollarAmount').value);
+                                        if (isNaN(recieved)) {
+                                            recieved = 0;
+                                        }
+                                        // console.log(recieved);
+                                        let change = recieved - totalPrice;
+                                        if (change % 1 != 0) {
+                                            changeFormat = `${change}0`
+                                        } else {
+                                            changeFormat = `${change}.00`
+                                        }
+                                        changeField.value = changeFormat;
+                                    }
+                                    function given(value) {
+                                        let recieved = document.querySelector('#dollarAmount');
+                                        let changeField = document.querySelector('#change');
+                                        let changeFormat;
+                                        recieved.value = value;
+                                        let change = value - totalPrice;
+                                        if (change % 1 != 0) {
+                                            changeFormat = `${change}0`
+                                        } else {
+                                            changeFormat = `${change}.00`
+                                        }
+                                        changeField.value = changeFormat;
+                                    }
+                                    function keepTheChange() {
+                                        let change = document.querySelector('#change').value;
+                                        let changeValue = parseFloat(change);
+                                        if (changeValue <= 0) {
+                                            let keepChange = document.getElementById('keepChange');
+                                            keepChange.innerHTML = "No Change to Keep!";
+                                            setTimeout(() => {
+                                                keepChange.innerHTML = "Keep The Change?";
+                                            }, 2000)
+                                            return;
+                                        } else {
+                                            // console.log(change, changeValue);
+                                            var newRow = document.createElement("tr");
+                                            var cellName = document.createElement("td");
+                                            var cellPrice = document.createElement("td");
+                                            cellName.innerHTML = 'Tip';
+                                            cellName.classList.add('name');
+                                            cellName.id = `item${itemNum}Name`;
+                                            cellPrice.innerHTML = `$${change}`;
+                                            cellPrice.classList.add('price')
+                                            cellPrice.id = `item${itemNum}Price`;
+                                            newRow.append(cellName);
+                                            newRow.append(cellPrice);
+                                            newRow.id = `item${itemNum}`;
+                                            let clickEvent = 'deleteItemConfirm(\'item' + itemNum + '\');';
+                                            newRow.setAttribute('onclick', clickEvent);
+                                            document.getElementById("items").appendChild(newRow);
+                                            totalPrice = totalPrice + changeValue;
+                                            if (totalPrice % 1 != 0) {
+                                                totalPriceFormat = `${totalPrice}0`
+                                            } else {
+                                                totalPriceFormat = `${totalPrice}.00`
+                                            }
+                                            document.querySelector('#total').innerHTML = `$${totalPriceFormat}`;
+                                            document.getElementById('totalAmount').value = totalPriceFormat;
+                                            calc();
+                                            itemNum++;
+                                            return;
+                                        }
+                                    }
+                                    function completeOrderModal(event) {
+                                        if (event.keyCode == 13) {
+                                            completeOrder();
+                                        }
+                                    }
+
+                                </script>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-secondary" data-bs-target="totalModal" data-bs-dismiss="modal"
+                            style="border-radius: 1rem;">Cancel</a>
+                        <a class="btn btn-primary" style="border-radius: 1rem;" onclick="completeOrder()">Complete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-end" style="width: 30vw;" tabindex="-1" id="deleteItemConfirm"
+            aria-labelledby="deleteItemConfirmLabel">
+            <div class="offcanvas-header">
+                <h5 id="deleteItemConfirmLabel">Delete Confirmation</h5>
+            </div>
+            <div class="offcanvas-body w-100">
+                <p>Are you sure you want to delete:</p>
+                <div class="deletedItemWarn">
+                    <h1 id="itemEmoji">🍕</h1>
+                    <p id="itemName">Pizza</p>
+                </div>
+                <a class="btn btn-danger" id="confirmDelete" data-bs-dismiss="offcanvas"
+                    data-bs-target="#deleteItemConfirm">Yes</a>
+                <a class="btn btn-secondary" id="cancelDelete" data-bs-dismiss="offcanvas"
+                    data-bs-target="#deleteItemConfirm">Cancel</a>
+            </div>
+        </div>
+
+        <div class="modal fade" id="reloadingPageModal" tabindex="-1" role="dialog"
+            aria-labelledby="reloadingPageModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="reloadingPageModalLabel">Reloading Page</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div style="max-width: fit-content;" class="mx-auto">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal fade" id="windowModal" tabindex="-1" aria-labelledby="windowModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="windowModalLabel">Choose your window</h5>
+                </div>
+                <div class="modal-body d-flex justify-content-center align-items-center">
+                    <a class="btn btn-primary mx-1" id="win1" onclick="chooseWindow(1)">Window One</a>
+                    <a class="btn btn-secondary mx-1" id="win2" onclick="chooseWindow(2)">Window Two</a>
+                </div>
+            </div>
+        </div>
+        <script>
+            window.onload = function () { $('#windowModal').modal('show'); }
+            let windowNum;
+            function chooseWindow(windowIn) {
+                windowNum = windowIn;
+                document.getElementById('windowNumber').innerHTML = windowNum;
+                $('#windowModal').modal('hide');
+            }
+        </script>
+    </div>
+
+    <script>
+        var itemName;
+        var itemPrice = 0;
+        var itemPriceFormat;
+        var totalPrice = 0;
+        var totalPriceFormat = "0.00";
+        let calDate;
+        let min;
+        let dayTime;
+        function hours12(date) { return (calDate.getHours() + 24) % 12 || 12; }
+        let itemNum = 1;
+
+        function getTime() {
+            calDate = new Date();
+            min = (calDate.getMinutes() < 10 ? '0' : '') + calDate.getMinutes();
+            dayTime = (calDate.getMonth() + 1) + "-" + calDate.getDate() + " at " + hours12() + ":" + min;
+        }
+        getTime();
+
+        var csv = '';
+        var fileText = [
+            ['Order Receipt \n'],
+            ['Placed On', dayTime + "\n"]
+        ];
+        var itemList = [];
+
+        function currentSelected(selectedItem) {
+            itemName = selectedItem;
+            switch (itemName) {
+                case 'pizza': itemPriceFormat = '$5.00'; itemName = 'Pizza'; itemPrice = 5; break;
+                case 'hotdog': itemPriceFormat = '$3.50'; itemName = 'Hot Dog'; itemPrice = 3.5; break;
+                case 'nachos': itemPriceFormat = '$3.00'; itemName = 'Nachos'; itemPrice = 3; break;
+                case 'pretzel': itemPriceFormat = '$2.50'; itemName = 'Pretzel'; itemPrice = 2.5; break;
+                case 'popcorn': itemPriceFormat = '$2.00'; itemName = 'Popcorn'; itemPrice = 2; break;
+                case 'lgcandy': itemPriceFormat = '$3.00'; itemName = 'Lg Candy'; itemPrice = 3; break;
+                case 'mdcandy': itemPriceFormat = '$2.00'; itemName = 'Md Candy'; itemPrice = 2; break;
+                case 'smcandy': itemPriceFormat = '$0.50'; itemName = 'Sm Candy'; itemPrice = 0.5; break;
+                case 'chips': itemPriceFormat = '$1.00'; itemName = 'Chips'; itemPrice = 1; break;
+                case 'cheesecup': itemPriceFormat = '$0.50'; itemName = 'Cheese Cup'; itemPrice = 0.5; break;
+                case 'soda': itemPriceFormat = '$3.00'; itemName = 'Soda'; itemPrice = 3; break;
+                case 'gatorade': itemPriceFormat = '$3.00'; itemName = 'Gatorade'; itemPrice = 3; break;
+                case 'energydrink': itemPriceFormat = '$4.00'; itemName = 'Energy Drink'; itemPrice = 4; break;
+                case 'frappuccino': itemPriceFormat = '$4.00'; itemName = 'Frappuccino'; itemPrice = 4; break;
+                case 'water': itemPriceFormat = '$1.50'; itemName = 'Water'; itemPrice = 1.5; break;
+                case 'coffee': itemPriceFormat = '$2.00'; itemName = 'Coffee'; itemPrice = 2; break;
+                case 'hotcocoa': itemPriceFormat = '$2.00'; itemName = 'Hot Cocoa'; itemPrice = 2; break;
+                case 'finger': itemPriceFormat = '$5.00'; itemName = 'Foam Finger'; itemPrice = 5; break;
+            }
+        }
+        function addData(amount) {
+            let i = 1
+            while (i <= amount) {
+                var newRow = document.createElement("tr");
+                var cellName = document.createElement("td");
+                var cellPrice = document.createElement("td");
+                cellName.innerHTML = itemName;
+                cellName.classList.add('name');
+                cellName.id = `item${itemNum}Name`;
+                cellPrice.innerHTML = itemPriceFormat;
+                cellPrice.classList.add('price');
+                cellPrice.id = `item${itemNum}Price`;
+                newRow.append(cellName);
+                newRow.append(cellPrice);
+                newRow.id = `item${itemNum}`;
+                let clickEvent = 'deleteItemConfirm(\'item' + itemNum + '\');';
+                newRow.setAttribute('onclick', clickEvent);
+                document.getElementById("items").appendChild(newRow);
+                totalPrice = totalPrice + itemPrice;
+                if (totalPrice % 1 != 0) {
+                    totalPriceFormat = `${totalPrice}0`
+                } else {
+                    totalPriceFormat = `${totalPrice}.00`
+                }
+                document.querySelector('#total').innerHTML = `$${totalPriceFormat}`;
+                fileText.push(itemName, itemPrice + "\n");
+                itemList[i] = `${itemName} for ${itemPriceFormat}`;
+                // console.log(itemList)
+                i++
+                itemNum++;
+                getTime();
+            }
+            itemName = null;
+            itemPrice = null;
+            $('#quantityModal').modal('hide');
+        }
+    </script>
+
+    <script>
+        function customPrice() {
+            let valueFormat;
+            let value = parseFloat(document.querySelector('#customAmount').value);
+            if (isNaN(value)) {
+                value = 0;
+                valueFormat = 'Note';
+            } else {
+                if (value % 1 != 0) {
+                    valueFormat = `$${value}0`
+                } else {
+                    valueFormat = `$${value}.00`
+                }
+            }
+            let note = document.getElementById('customName').value.toString();
+            if (!note) {
+                note = 'Custom';
+            };
+            console.log(note);
+            var newRow = document.createElement("tr");
+            var cellName = document.createElement("td");
+            var cellPrice = document.createElement("td");
+            cellName.innerHTML = `${note}`;
+            cellName.classList.add('name');
+            cellName.id = `item${itemNum}Name`;
+            cellPrice.innerHTML = valueFormat;
+            cellPrice.classList.add('price')
+            cellPrice.id = `item${itemNum}Price`;
+            newRow.append(cellName);
+            newRow.append(cellPrice);
+            newRow.id = `item${itemNum}`;
+            let clickEvent = 'deleteItemConfirm(\'item' + itemNum + '\');';
+            newRow.setAttribute('onclick', clickEvent);
+            document.getElementById("items").appendChild(newRow);
+            totalPrice = totalPrice + value;
+            if (totalPrice % 1 != 0) {
+                totalPriceFormat = `${totalPrice}0`
+            } else {
+                totalPriceFormat = `${totalPrice}.00`
+            }
+            document.querySelector('#total').innerHTML = `$${totalPriceFormat}`;
+            itemNum++;
+            document.querySelector('#customAmount').value = '';
+            document.querySelector('#customName').value = '';
+        }
+    </script>
+
+    <script>
+        function deleteItemConfirm(item) {
+            var offCanvasDelete = document.querySelector('#deleteItemConfirm');
+            var bsOffCanvas = new bootstrap.Offcanvas(offCanvasDelete)
+            bsOffCanvas.show()
+            let itemEmoji = "";
+            let deleteConfirmBtn = document.querySelector('#confirmDelete');
+            let idName = `${item}Name`;
+            let idPrice = `${item}Price`;
+            itemName = document.getElementById(idName).innerHTML;
+            let itemPrice;
+            switch (itemName) {
+                case 'Pizza': itemEmoji = '🍕'; itemPrice = 5; break;
+                case 'Hot Dog': itemEmoji = '🌭'; itemPrice = 3.5; break;
+                case 'Nachos': itemEmoji = '🧀'; itemPrice = 3; break;
+                case 'Pretzel': itemEmoji = '🥨'; itemPrice = 2.5; break;
+                case 'Popcorn': itemEmoji = '🍿'; itemPrice = 2; break;
+                case 'Lg Candy': itemEmoji = '🍫'; itemPrice = 3; break;
+                case 'Md Candy': itemEmoji = '🍭'; itemPrice = 2; break;
+                case 'Sm Candy': itemEmoji = '🍬'; itemPrice = 0.5; break;
+                case 'Chips': itemEmoji = '🥔'; itemPrice = 1; break;
+                case 'Cheese Cup': itemEmoji = '🍯'; itemPrice = 0.5; break;
+                case 'Soda': itemEmoji = '🥤'; itemPrice = 3; break;
+                case 'Gatorade': itemEmoji = '🧃'; itemPrice = 3; break;
+                case 'Energydrink': itemEmoji = '🥤'; itemPrice = 4; break;
+                case 'Frappuccino': itemEmoji = '🥛'; itemPrice = 4; break;
+                case 'Water': itemEmoji = '🥤'; itemPrice = 1.5; break;
+                case 'Coffee': itemEmoji = '☕'; itemPrice = 2; break;
+                case 'Hot Cocoa': itemEmoji = '☕'; itemPrice = 2; break;
+                case 'Foam Finger': itemEmoji = '☝️'; itemPrice = 5; break;
+                default: itemEmoji = '➕'; itemPrice = parseFloat(itemPrice); break;
+            }
+            let itemEmojiField = document.querySelector('#itemEmoji');
+            let itemNameField = document.querySelector('#itemName');
+            itemEmojiField.innerHTML = itemEmoji;
+            itemNameField.innerHTML = itemName;
+            let clickEvent = 'deleteItem(\'' + item + '\',' + itemPrice + ');';
+            deleteConfirmBtn.setAttribute('onclick', clickEvent);
+        }
+        function deleteItem(item, itemPrice) {
+            $(`#${item}`).remove();
+            totalPrice = totalPrice - itemPrice;
+            if (isNaN(totalPrice)) {
+                totalPrice = 0;
+            }
+            if (totalPrice % 1 != 0) {
+                totalPriceFormat = `${totalPrice}0`
+            } else {
+                totalPriceFormat = `${totalPrice}.00`
+            }
+            document.querySelector('#total').innerHTML = `$${totalPriceFormat}`;
+        }
+    </script>
+
+    <script>
+        function tapped() {
+            calc()
+            let pay = document.querySelector('.pay');
+            pay.style.transform = "scale(0.9)";
+            pay.style.boxShadow = "0px 5px 30px 0px rgba(79, 132, 19, 0.3)";
+            document.getElementById('totalAmount').value = totalPriceFormat;
+            $('#totalModal').modal('show')
+            setTimeout(() => {
+                pay.style.transform = "scale(1)";
+                pay.style.boxShadow = "0px 15px 40px 0px rgba(79, 132, 19, 0.3)";
+            }, 150)
+
+        }
+
+        function SaveAsFile(t, f, m) {
+            try {
+                var b = new Blob([t], { type: m });
+                saveAs(b, f);
+            } catch (e) {
+                window.open("data:" + m + "," + encodeURIComponent(t), '_blank', '');
+            }
+            fileText = [
+                ['Order Receipt \n'],
+                ['Placed On', dayTime + "\n"]
+            ];
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/g/filesaver.js"></script>
+    <script src="./node_modules/crypto-js/crypto-js.js"></script>
+    <script src="./js/sendDiscord.js"></script>
+    <script>
+        let orderNum = 1;
+        let itemDName;
+        let itemDPrice;
+
+        function clearPage() {
+            $('#items *').remove();
+            $('#totalModal').modal('hide');
+            orderNum++;
+            document.getElementById('orderNumber').innerHTML = orderNum;
+            totalPrice = 0;
+            itemNum = 1;
+            totalPriceFormat = '0.00';
+            document.querySelector('#total').innerHTML = `$${totalPriceFormat}`;
+            document.querySelector('#dollarAmount').value = '';
+        }
+
+        function completeOrder() {
+            let o = 0;
+            let totalItems = itemNum - 1;
+            fileText.push('Total', '', totalPriceFormat);
+            SaveAsFile(fileText, "order" + orderNum + ".csv", "text/csv;charset=utf-8");
+
+            sendDiscordMessage(orderNum, totalPriceFormat, dayTime, itemList, document.getElementById('discordStatus'), CryptoJS.AES.decrypt('U2FsdGVkX18tVG7T5hd0B/lMKwnRevLpYvsci7/haqho5zg9iM+YgyjFeOnTPSs89tdEzNHj3cC4AzNYof9O1EPtdTiDWLb6ZlMXSiuuclcmfaT8HdtjH/m3ahkDhE2IBoIQymNWffENFUeQVnHiQ7AOug8UzjOAGYCnM6mxNDX3w27YTxwmLZ6VyWeev1Pz', '202122').toString(CryptoJS.enc.Utf8))
+            clearPage();
+        }
+    </script>
+
+    <!-- <script>
+        document.ontouchmove = function (event) {
+            event.preventDefault();
+        }
+
+        document.addEventListener("click", event => { });
+        document.addEventListener("touchstart", event => {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, { passive: false });
+    </script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+        integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</body>
+
+</html>

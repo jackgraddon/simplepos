@@ -93,16 +93,4 @@ function deleteItemConfirm(item) {
   let clickEvent = "deleteItem('" + item + "'," + itemPrice + ");";
   deleteConfirmBtn.setAttribute("onclick", clickEvent);
 }
-function deleteItem(item, itemPrice) {
-  $(`#${item}`).remove();
-  totalPrice = totalPrice - itemPrice;
-  if (isNaN(totalPrice)) {
-    totalPrice = 0;
-  }
-  if (totalPrice % 1 != 0) {
-    totalPriceFormat = `${totalPrice}0`;
-  } else {
-    totalPriceFormat = `${totalPrice}.00`;
-  }
-  document.querySelector("#total").innerHTML = `$${totalPriceFormat}`;
-}
+

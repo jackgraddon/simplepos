@@ -3,108 +3,108 @@
     "name": "Pizza",
     "price": 5.0,
     "emoji": "🍕",
-    "id": 1001
+    "id": 0
   },
   {
     "name": "Hot Dog",
     "price": 3.5,
     "emoji": "🌭",
-    "id": 1002
+    "id": 1
   },
   {
     "name": "Nachos",
     "price": 3.0,
     "emoji": "🧀",
-    "id": 1003
+    "id": 2
   },
   {
     "name": "Pretzel",
     "price": 2.5,
     "emoji": "🥨",
-    "id": 1004
+    "id": 3
   },
   {
     "name": "Popcorn",
     "price": 2.0,
     "emoji": "🍿",
-    "id": 1005
+    "id": 4
   },
   {
     "name": "LG Candy",
     "price": 3.0,
     "emoji": "🍫",
-    "id": 1006
+    "id": 5
   },
   {
     "name": "Md Candy",
     "price": 2.0,
     "emoji": "🍭",
-    "id": 1007
+    "id": 6
   },
   {
     "name": "Sm Candy",
     "price": 0.5,
     "emoji": "🍬",
-    "id": 1008
+    "id": 7
   },
   {
     "name": "Chips",
     "price": 1.0,
     "emoji": "🥔",
-    "id": 1009
+    "id": 8
   },
   {
     "name": "Cheese Cup",
     "price": 0.5,
-    "emoji": "🍯",
-    "id": 1010
+    "emoji": "🫕",
+    "id": 9
   },
   {
     "name": "Soda",
     "price": 3.0,
     "emoji": "🥤",
-    "id": 1011
+    "id": 10
   },
   {
     "name": "Gatorade",
     "price": 3.0,
     "emoji": "🧃",
-    "id": 1012
+    "id": 11
   },
   {
     "name": "Energy Drink",
     "price": 4.0,
     "emoji": "🥤",
-    "id": 1013
+    "id": 12
   },
   {
     "name": "Frappuccino",
     "price": 4.0,
     "emoji": "☕️",
-    "id": 1014
+    "id": 13
   },
   {
     "name": "Water",
     "price": 1.5,
     "emoji": "🥤",
-    "id": 1015
+    "id": 14
   },
   {
     "name": "Coffee",
     "price": 2.0,
     "emoji": "☕️",
-    "id": 1016
+    "id": 15
   },
   {
     "name": "Hot Cocoa",
     "price": 2.0,
     "emoji": "☕️",
-    "id": 1017
+    "id": 16
   },
   {
     "name": "Foam Finger",
     "price": 5.0,
     "emoji": "☝️",
-    "id": 1018
+    "id": 17
   }
 ]

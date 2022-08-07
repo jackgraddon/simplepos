@@ -3,59 +3,133 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SimplePOS</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://kit.fontawesome.com/c2793fb33f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <!-- POS Interface -->
     <main class="webcontainer">
         <div id="pos"></div>
         <div id="cart">
             <div class="header">
-                <div class="d-flex flex-column flex-fill justify-content-center align-items-center">
-                    <h1>Lion's Den</h1>
+                <div>
+                    <h1>SimplePOS</h1>
                     <p>Order: <span id="orderNumber">1</span> | Window: <span id="windowNumber">?</span></p>
                 </div>
-                <a style="padding: 0.5rem;" onclick="$('#windowModal').modal('show');">
-                    <i class="fa fa-info-circle" aria-hidden="true"></i>
-                </a>
-                <a style="padding-right: 0.2rem;">
-                    <i class="fas fa-circle" aria-hidden="true" id="discordStatus"></i>
-                </a>
+                <span>
+                    <a href="./customize/">
+                        <i class="fa fas fa-pencil-alt" aria-hidden="true"></i>
+                    </a>
+                    <a>
+                        <i class="fa fas fa-circle" aria-hidden="true" id="discordStatus"></i>
+                    </a>
+                </span>
             </div>
-            <div class="body flex-fill">
-                <div class="flex-fill w-100 orderContainer">
-                    <table class="order" id="order">
-                        <thead>
-                            <tr>
-                                <td class="w-100">Item</td>
-                                <td>Price</td>
-                            </tr>
-                        </thead>
-                        <tbody id="items">
-                        </tbody>
-                    </table>
+            <div id="order">
+                <div id="orderHeader">
+                    <p>Item</p>
+                    <p>Price</p>
+                </div>
+                <div id="items">
                 </div>
             </div>
             <div class="footer">
-                <div class="w-100">
-                    <table class="table">
-                        <tr>
-                            <td class="w-100">Total:</td>
-                            <td class="price" id="total">$0.00</td>
-                        </tr>
-                    </table>
-                </div>
-                <button class="pay" type="button" onclick="tapped()">
+                <p id="total">Total: <span id="price">$0.00</span></p>
+                <button class="pay" type="button" onclick="toggleModal('totalModal')">
                     <p>Finish and Pay</p>
                 </button>
             </div>
         </div>
     </main>
+
+    <!-- Delete Item Modal -->
+    <div class="modal" id="deleteModal" style="opacity: 0; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Remove item?</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete:</p>
+                    <div id="deletedItem">
+                        <h1 id="itemEmoji">🍕</h1>
+                        <p id="itemName">Pizza</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-secondary" id="cancelDelete" onclick="toggleModal('deleteModal', true)">Cancel</a>
+                    <a class="btn btn-danger" id="confirmDelete">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Purchase Results Modal -->
+    <div class="modal" id="totalModal" style="opacity: 0; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="totalModalLabel">Purchase Results</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="calculator">
+                        <form>
+                            <lable for="totalAmount">Total:</lable>
+                            <div class="input-group">
+                                <div><i class="fas fa-dollar-sign"></i></div>
+                                <input type="number" class="form-control-read" placeholder="0.00" id="totalAmount"
+                                    aria-label="Dollar Amount" aria-describedby="dollarSign" readonly
+                                    style="border-top-right-radius: 1rem; border-bottom-right-radius: 1rem;">
+                            </div>
+                            <lable for="dollarAmount">Given:</lable>
+                            <div class="input-group">
+                                <div><i class="fas fa-dollar-sign"></i></div>
+                                <input class="form-control" type="number" placeholder="0.00" id="dollarAmount"
+                                    aria-label="Dollar Amount" aria-describedby="dollarSign" onkeyup="calc()"
+                                    onkeypress="completeOrderModal(event)">
+                                <button class="btn btn-primary" id="dollar5" type="button" onclick="given(5)">$5
+                                </button>
+                                <button class="btn btn-primary" id="dollar10" type="button" onclick="given(10)">$10
+                                </button>
+                                <button class="btn btn-primary" id="dollar10" type="button" onclick="given(15)">$15
+                                </button>
+                                <button class="btn btn-primary" id="dollar20" type="button" onclick="given(20)"
+                                    style="border-top-right-radius: 1rem; border-bottom-right-radius: 1rem;">$20
+                                </button>
+                            </div>
+                            <lable for="change">Change:</lable>
+                            <div class="input-group">
+                                <div><i class="fas fa-dollar-sign"></i></div>
+                                <input class="form-control-read" value="0.00" id="change" readonly>
+                                <button class="btn btn-primary" id="keepChange" type="button" onclick="keepTheChange()"
+                                    style="border-top-right-radius: 1rem; border-bottom-right-radius: 1rem; min-width: 166px">Keep
+                                    The Change?
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-secondary" onclick="toggleModal('totalModal', true)">Cancel</a>
+                    <a class="btn btn-primary" onclick="completeOrder()">Complete</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/CSSRulePlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"></script>
+<!-- General Page Script -->
 <script>
+    // Load items from JSON
     let items;
     fetch("data/items.json")
         .then(response => {
@@ -63,30 +137,240 @@
         })
         .then(jsondata => items = jsondata);
     window.onload = () => {
-        // test fetch
-        console.log(items)
-        items.forEach(item => {
-            console.log(item);
+        try {
+            console.log(`Loading items ${items[0].id} thru ${items[items.length - 1].id}...`);
+            items.forEach(item => {
+
+                let container = document.createElement('div');
+                container.id = item.id;
+                container.classList.add("item");
+
+                let button = document.createElement("a");
+                button.classList.add("tocart");
+                button.onclick = function () { addToCart(item.id) };
+                container.appendChild(button);
+
+                let emoji = document.createElement("h1")
+                emoji.textContent = item.emoji;
+                button.appendChild(emoji);
+
+                let name = document.createElement("p")
+                name.textContent = item.name;
+                button.appendChild(name);
+
+                document.querySelector("#pos").appendChild(container)
+            })
             let container = document.createElement('div');
-            container.id = item.id;
+            container.id = 9999;
             container.classList.add("item");
 
             let button = document.createElement("a");
             button.classList.add("tocart");
-            // button.onclick = currentSelected(item.id);
+            button.onclick = function () { addToCart('custom') };
             container.appendChild(button);
 
             let emoji = document.createElement("h1")
-            emoji.textContent = item.emoji;
+            emoji.textContent = "➕";
             button.appendChild(emoji);
 
             let name = document.createElement("p")
-            name.textContent = item.name;
+            name.textContent = "Custom";
+            button.appendChild(name);
+
+            document.querySelector("#pos").appendChild(container);
+            console.log(`Loaded ${items.length} items!`)
+        }
+        catch (e) {
+            let container = document.createElement('div');
+            container.id = 0000;
+            container.classList.add("item");
+
+            let button = document.createElement("a");
+            button.classList.add("tocart");
+            button.onclick = function () {
+                alert(`An error occurred when loading your items:\n${e}`)
+            };
+            container.appendChild(button);
+
+            let emoji = document.createElement("h1")
+            emoji.textContent = "⚠️";
+            button.appendChild(emoji);
+
+            let name = document.createElement("p")
+            name.textContent = "Error";
             button.appendChild(name);
 
             document.querySelector("#pos").appendChild(container)
-        })
+            document.querySelector("#pos").style.width = '100%';
+            console.log(e)
+        }
+    }
+    // Display modals
+    let openModals = []
+    function forceCloseModal(e, name) {
+
+    }
+    function toggleModal(name, forceClose) {
+        let modal = document.getElementById(name);
+        if (openModals.includes(name) || forceClose) {
+            openModals = openModals.filter(e => e !== name);
+            gsap.fromTo(modal, { opacity: 1, display: 'flex' }, { opacity: 0, display: 'none', duration: 0.3 })
+            gsap.fromTo(modal.firstElementChild, { y: 0 }, { y: 50, duration: 0.3 })
+        } else {
+            openModals.push(name)
+            gsap.fromTo(modal, { opacity: 0, display: 'none' }, { opacity: 1, display: 'flex', duration: 0.3 })
+            gsap.fromTo(modal.firstElementChild, { y: 50 }, { y: 0, duration: 0.3 })
+            document.addEventListener('keydown', (e) => {
+                if (e.key == "Escape" && openModals.includes(name)) {
+                    toggleModal(name, true);
+                }
+            })
+        }
     }
 </script>
+<!-- Add to Cart Scripts -->
+<script>
+    let totalItems = 0, totalPrice = 0, totalPriceFormat = "0.00", priceFormat = "0.00";
+    // Add Items
+    function addToCart(id) {
+        totalItems++;
+        if (id == 'custom') {
+
+        } else {
+            var newRow = document.createElement("div");
+            var cellName = document.createElement("p");
+            var cellPrice = document.createElement("p");
+            cellName.textContent = items[id].emoji + " " + items[id].name;
+            cellName.classList.add("name");
+            cellName.id = `item${totalItems}Name`;
+            if (items[id].price % 1 != 0) {
+                priceFormat = `${items[id].price}0`;
+            } else {
+                priceFormat = `${items[id].price}.00`;
+            }
+            cellPrice.textContent = `$${priceFormat}`;
+            cellPrice.classList.add("price");
+            cellPrice.id = `item${totalItems}Price`;
+            newRow.append(cellName);
+            newRow.append(cellPrice);
+            newRow.id = `item${totalItems}`;
+            newRow.onclick = function () { removeItem(newRow.id, items[id]); }
+            document.getElementById("items").appendChild(newRow);
+            totalPrice = totalPrice + items[id].price;
+            if (totalPrice % 1 != 0) {
+                totalPriceFormat = `${totalPrice}0`;
+            } else {
+                totalPriceFormat = `${totalPrice}.00`;
+            }
+            document.querySelector("#total #price").textContent = `$${totalPriceFormat}`;
+            calc()
+        }
+    }
+</script>
+<!-- Remove from Cart Scripts -->
+<script>
+    function removeItem(selectedRow, item) {
+        // console.log(selectedRow)
+        document.querySelector('#deleteModal #itemEmoji').textContent = item.emoji;
+        document.querySelector('#deleteModal #itemName').textContent = item.name;
+        document.querySelector('#deleteModal #confirmDelete').onclick = function () { deleteItem(selectedRow, item.price) }
+        toggleModal('deleteModal')
+    }
+    function deleteItem(selectedRow, itemPrice) {
+        // console.log(selectedRow)
+        document.querySelector(`#${selectedRow}`).remove();
+        totalPrice = totalPrice - itemPrice;
+        if (isNaN(totalPrice)) {
+            totalPrice = 0;
+        }
+        if (totalPrice % 1 != 0) {
+            totalPriceFormat = `${totalPrice}0`;
+        } else {
+            totalPriceFormat = `${totalPrice}.00`;
+        }
+        document.querySelector("#total #price").textContent = `$${totalPriceFormat}`;
+        calc()
+        toggleModal('deleteModal', true);
+    }
+</script>
+<!-- Total Modal Scripts -->
+<script>
+    function calc() {
+        document.querySelector('#totalAmount').value = totalPriceFormat;
+        let changeField = document.querySelector('#change');
+        let received = parseFloat(document.querySelector('#dollarAmount').value);
+        if (isNaN(received)) {
+            received = 0;
+        }
+        // console.log(received);
+        let change = received - totalPrice;
+        if (change % 1 != 0) {
+            priceFormat = `${change}0`
+        } else {
+            priceFormat = `${change}.00`
+        }
+        changeField.value = priceFormat;
+    }
+    function given(value) {
+        let received = document.querySelector('#dollarAmount');
+        let changeField = document.querySelector('#change');
+        received.value = value;
+        let change = value - totalPrice;
+        if (change % 1 != 0) {
+            priceFormat = `${change}0`
+        } else {
+            priceFormat = `${change}.00`
+        }
+        changeField.value = priceFormat;
+    }
+    function keepTheChange() {
+        let change = parseFloat(document.querySelector('#change').value);
+        if (change <= 0) {
+            let keepChange = document.getElementById('keepChange');
+            keepChange.textContent = "No Change to Keep!";
+            setTimeout(() => {
+                keepChange.textContent = "Keep The Change?";
+            }, 2000)
+            return;
+        } else {
+            totalItems++
+            // console.log(change, change);
+            var newRow = document.createElement("div");
+            var cellName = document.createElement("p");
+            var cellPrice = document.createElement("p");
+            cellName.textContent = '🪙 Tip';
+            cellName.classList.add('name');
+            cellName.id = `item${totalItems}Name`;
+            if (change % 1 != 0) {
+                priceFormat = `${change}0`;
+            } else {
+                priceFormat = `${change}.00`;
+            }
+            cellPrice.textContent = `$${priceFormat}`;
+            cellPrice.classList.add('price')
+            cellPrice.id = `item${totalItems}Price`;
+            newRow.append(cellName);
+            newRow.append(cellPrice);
+            newRow.id = `item${totalItems}`;
+            newRow.onclick = function () { removeItem('item' + totalItems, { "name": "Tip", "price": `${change}`, "emoji": "🪙" }) };
+        }
+        document.getElementById("items").appendChild(newRow);
+        totalPrice = totalPrice + change;
+        if (totalPrice % 1 != 0) {
+            totalPriceFormat = `${totalPrice}0`;
+        } else {
+            totalPriceFormat = `${totalPrice}.00`;
+        }
+        document.querySelector("#total #price").textContent = `$${totalPriceFormat}`;
+        calc();
+    }
+    function completeOrder() {
+        alert("This will save a receipt soon, but for now it just restarts the system.")
+        window.location.reload()
+    }
+</script>
+<script src="../script/customPrice.js"></script>
+<script src="../script/saveFile.js"></script>
+<script src="../script/sendDiscord.js"></script>
 
 </html>
